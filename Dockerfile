@@ -47,31 +47,27 @@ RUN apk add --no-cache \
 RUN npm install -g gulp grunt-cli
 
 # CLI Dependencies
-RUN apk add --no-cache \
-        bash \
-        curl \
-        git \
-        mysql-client \
-        netcat-openbsd \
-        openssh-client \
-        redis \
-        vim \
-        zip
-
-# Composer
-RUN set -xe; \
+RUN set -xe \
         \
+        apk add --no-cache \
+            bash \
+            curl \
+            git \
+            mysql-client \
+            netcat-openbsd \
+            openssh-client \
+            redis \
+            vim \
+            zip \
+        ; \
         curl -sS https://getcomposer.org/installer | \
-        php -- \
-            --filename=composer \
-            --install-dir=/usr/local/bin;
-
-# Magerun
-RUN set -xe; \
-        \
+            php -- \
+                --filename=composer \
+                --install-dir=/usr/local/bin \
+        ; \
         curl -sS -o /usr/local/bin/n98-magerun2 "https://files.magerun.net/n98-magerun2.phar"; \
-        chmod +x /usr/local/bin/n98-magerun2;
+        chmod a+x /usr/local/bin/n98-magerun2; \
+        curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony; \
+        chmod a+x /usr/local/bin/symfony;
 
-USER www-data
-
-CMD ["sh"]
+CMD ["bash"]
