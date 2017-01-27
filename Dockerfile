@@ -47,7 +47,7 @@ RUN apk add --no-cache \
 RUN npm install -g gulp grunt-cli
 
 # CLI Dependencies
-RUN set -xe \
+RUN set -xe; \
         \
         apk add --no-cache \
             bash \
