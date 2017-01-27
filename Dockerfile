@@ -4,7 +4,7 @@ FROM redboxdigital/php:7.0
 # Copied from node:alpine
 
 ENV NPM_CONFIG_LOGLEVEL info
-ENV NODE_VERSION 7.2.1
+ENV NODE_VERSION 7.4.0
 
 RUN apk add --no-cache \
         libstdc++ \
