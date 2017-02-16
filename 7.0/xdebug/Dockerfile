@@ -66,6 +66,6 @@ RUN set -xe; \
         curl -sS -o /usr/local/bin/n98-magerun2 "https://files.magerun.net/n98-magerun2.phar"; \
         chmod a+x /usr/local/bin/n98-magerun2; \
         curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony; \
-        chmod a+x /usr/local/bin/symfony; \
+        chmod a+x /usr/local/bin/symfony;
 
 CMD ["bash"]
