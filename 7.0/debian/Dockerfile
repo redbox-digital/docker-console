@@ -38,7 +38,9 @@ RUN set -xe; \
             mysql-client \
             netcat-openbsd \
             openssh-client \
+            pv \
             redis-tools \
+            tree \
             vim \
             zip \
         ; \
