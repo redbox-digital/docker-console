@@ -4,7 +4,7 @@ FROM redboxdigital/php:7.0
 # Copied from node:alpine
 
 ENV NPM_CONFIG_LOGLEVEL info
-ENV NODE_VERSION 7.5.0
+ENV NODE_VERSION 7.8.0
 
 RUN apk add --no-cache \
         libstdc++ \
@@ -60,6 +60,9 @@ RUN set -xe; \
             vim \
             zip \
         ; \
+        npm install -g \
+            gulp-cli \
+        ; \
         curl -sS https://getcomposer.org/installer | \
             php -- \
                 --filename=composer \
@@ -68,6 +71,12 @@ RUN set -xe; \
         curl -sS -o /usr/local/bin/n98-magerun2 "https://files.magerun.net/n98-magerun2.phar"; \
         chmod a+x /usr/local/bin/n98-magerun2; \
         curl -LsS https://symfony.com/installer -o /usr/local/bin/symfony; \
-        chmod a+x /usr/local/bin/symfony;
+        chmod a+x /usr/local/bin/symfony; \
+        mkdir -p /usr/local/src; \
+        cd /usr/local/src; \
+        curl -sSL -o liquidprompt.tar.gz "https://github.com/nojhan/liquidprompt/archive/master.tar.gz"; \
+        tar xf liquidprompt.tar.gz; \
+        mv liquidprompt-master /usr/local/lib/liquidprompt; \
+        echo "source /usr/local/lib/liquidprompt/liquidprompt" > /etc/profile.d/liquidprompt; \
 
 CMD ["bash"]

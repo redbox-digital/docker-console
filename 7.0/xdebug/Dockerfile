@@ -4,7 +4,7 @@ FROM redboxdigital/php:7.0-xdebug
 # Copied from node:alpine
 
 ENV NPM_CONFIG_LOGLEVEL info
-ENV NODE_VERSION 7.5.0
+ENV NODE_VERSION 7.8.0
 
 RUN apk add --no-cache \
         libstdc++ \
@@ -54,6 +54,7 @@ RUN set -xe; \
             mysql-client \
             netcat-openbsd \
             openssh-client \
+            pv \
             redis \
             vim \
             zip \
